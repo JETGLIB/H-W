@@ -1,14 +1,11 @@
-def get_top_performers(file_path, number_of_top_students=5):  
-    student = {}  
-    import csv
-    with open(file_path, newline='') as file:  
-        for line in file:
-            *name, _, marcks = line.split()
- #           name = " ".join(name).split()            
-  #          marcks = int(marcks)
-            student = zip(name, marcks)
-            print(dict(student))
-            
-        
-    return student
+import csv
+def get_top_performers(file_path, number_of_top_students=2):
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  
+        students_data = list(reader)
+    students_data.sort(key=lambda x: float(x[2]), reverse=True)
+    top_performers = [student[0] for student in students_data[:number_of_top_students]]
+
+    return top_performers
 print(get_top_performers("students.csv"))
