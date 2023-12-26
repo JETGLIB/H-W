@@ -8,11 +8,11 @@ class RegularDiscount(Discount):
 
 class SilverDiscount(Discount):
     def discount(self, total_price):
-        return f'{total_price * 0.95:.2f}'
+        return total_price * 0.95
 
 class GoldDiscount(Discount):
     def discount(self, total_price):
-        return f'{total_price * 0.85:.2f}'
+        return total_price * 0.85
 
 class Client:
     def __init__(self, name, discount):
