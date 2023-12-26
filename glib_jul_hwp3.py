@@ -3,16 +3,16 @@ class Discount:
         pass
 
 class RegularDiscount(Discount):
-    def discount(self, total_price):
-        return total_price
+    def discount(self):
+        return 0
 
 class SilverDiscount(Discount):
-    def discount(self, total_price):
-        return total_price * 0.95
+    def discount(self):
+        return 0.05
 
 class GoldDiscount(Discount):
-    def discount(self, total_price):
-        return total_price * 0.85
+    def discount(self):
+        return 0.15
 
 class Client:
     def __init__(self, name, discount):
@@ -21,7 +21,7 @@ class Client:
 
     def get_total_price(self, order):
         total_price = sum(item.price for item in order)
-        discounted_price = self.discount.discount(total_price)
+        discounted_price = total_price * (1 - self.discount.discount())
         return discounted_price
 
 
