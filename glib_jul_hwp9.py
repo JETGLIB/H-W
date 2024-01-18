@@ -84,7 +84,7 @@ if __name__ == "__main__":
 # task 2
 class PaymentOption:
     def pay(self, amount):
-        raise NotImplementedError("The 'pay' method must be implemented.")
+        raise NotImplementedError
 
 class CreditCard(PaymentOption):
     def pay(self, amount):
